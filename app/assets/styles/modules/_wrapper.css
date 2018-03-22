@@ -25,6 +25,11 @@
          padding-left: 0;
          padding-right: 0;
 
+    @mixin atMedium {
+        padding-left: 9rem;
+        padding-right: 9rem;
+    }
+
     @mixin atLarge {
         padding-left: 18px;
         padding-right: 18px;

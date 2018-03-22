@@ -21,10 +21,20 @@ gulp.task('watch', function () {
     watch('./app/assets/styles/**/*.css', function () {
         gulp.start('cssInject');
     });
+
+    //Manage javascript files and webpack
+    watch('./app/assets/scripts/**/*.js', function () {
+        gulp.start('scriptsRefresh');
+    });
 });
 
 //Auto refresh CSS changes
 gulp.task('cssInject', /* dependecy first: */ ['styles'], function () {
     return gulp.src('./app/temp/styles/styles.css')
         .pipe(browserSync.stream());
+});
+
+//Refresh browser on javascript changes
+gulp.task('scriptsRefresh', ['scripts'], function () {
+    browserSync.reload();
 });
